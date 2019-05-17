@@ -1,4 +1,4 @@
 function test(){
-    document.querySelector('a').style.color = 'blue';
+    console.log('Matt');
 }
 module.exports = { test }
