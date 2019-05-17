@@ -1,4 +1,5 @@
 # Project Simply
+![screen shot of task](https://res.cloudinary.com/drldpyegp/image/upload/c_scale,h_556,q_auto/v1558117501/Screen_Shot_2019-05-17_at_19.19.38.webp)
 
 By Matthew Glen
 
@@ -33,7 +34,7 @@ npm run start
 
 ### Targets
 
-1. Design infnite animation while button is active.
+1. Design infinite animation for active state.
 
 2. When button is selected create a line animation connecting the player to the focused button.
 
