@@ -1,6 +1,4 @@
-# Webpack Boilerplate
-
-[Twitter(@ppaaddeehh)](http://twitter.com/ppaaddeehh)
+# Project Simply
 
 ## setup
 

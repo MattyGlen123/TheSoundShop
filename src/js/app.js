@@ -8,8 +8,3 @@ import '../css/main.scss'
 //import our test function from another js file
 import {test} from './models/test.js'
 
-let button = document.querySelector('.clickme');
-
-button.onclick = () =>{
-    test();
-}
