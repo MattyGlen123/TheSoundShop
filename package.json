@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "boilerplate",
   "main": "index.js",
+  "browserslist": [
+    "> 1%",
+    "ie > 9"
+  ],
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
@@ -17,11 +21,13 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
+    "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
     "npm": "^6.8.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.3",
