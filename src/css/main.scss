@@ -1,20 +1,13 @@
+// fonts
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
 
-*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
+// base
+@import 'base/base';
+@import 'base/variables';
 
-html {
-    // This defines what 1rem is.
-    font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%;
-}
-
-body {
-    font-family: 'montserrat';
-    box-sizing: border-box;
-}
-
+// components
+@import 'components/buttons';
+@import 'components/container';
+@import 'components/player';
+@import 'components/svg';
+ 
