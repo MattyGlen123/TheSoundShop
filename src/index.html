@@ -1,28 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=h1, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project Simply</title>
 </head>
+
 <body>
     <div class="container">
         <!-- SVG for line animation -->
         <svg class="svg" width="100%" height="100%">
-            <path class="line" stroke="red"/>
+            <path class="line" stroke="red" />
         </svg>
 
         <!-- Start point for line animation -->
         <div class="player"></div>
 
-        <!-- Conecting Buttons -->
+        <!-- Connecting Buttons -->
         <div class="btn-box">
-            <button id="btn-1" class="btn">Original</button>
-            <button id="btn-2" class="btn">Instramental</button>
-            <button id="btn-3" class="btn">R&B</button>
+
+            <a href="#" id="btn-1" class="btn">
+                <svg class="svg-btn">
+                    <!-- LinearGradient referenced on all buttons -->
+                    <defs>
+                        <linearGradient id="grad1">
+                            <stop offset="0%" stop-color="#FF8282" />
+                            <stop offset="100%" stop-color="#E178ED" />
+                        </linearGradient>
+                    </defs>
+
+                    <rect x="5" y="5" rx="25" stroke="url(#grad1)"></rect>
+                </svg>
+
+                Original
+            </a>
+
+            <a href="#" id="btn-2" class="btn">
+                <svg class="svg-btn">
+                    <rect x="5" y="5" rx="25" stroke="url(#grad1)"></rect>
+                </svg>
+                Instramental
+            </a>
+
+            <a href="#" id="btn-3" class="btn">
+                <svg class="svg-btn">
+                    <rect x="5" y="5" rx="25" stroke="url(#grad1)"></rect>
+                </svg>
+                R&B
+            </a>
+
+            <a href="#" id="btn-4" class="btn">
+                <svg class="svg-btn">
+                    <rect x="5" y="5" rx="25" stroke="url(#grad1)"></rect>
+                </svg>
+                Original
+            </a>
         </div>
-    </div> 
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 </body>
+
 </html>
