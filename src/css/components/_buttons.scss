@@ -6,6 +6,45 @@
 }
 
 .btn {
-  flex: 0 1 150px;
+  font-size: 1.5rem;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  background-color: transparent;
+  color: $color-primary;
+  text-align: center;
+  text-decoration: none;
+  flex: 0 1 190px;
   margin: 20px 10px;
+  border-radius: 55px;
+
+  z-index: 1;
 } 
+
+.svg-btn,
+.svg-btn rect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96%;
+  fill: transparent;
+  z-index: -5;
+}
+
+.svg-btn {
+  height: 100%;
+}
+
+.svg-btn rect {
+  fill: $color-fourth;
+  stroke-width: 4;
+  height: 80%;
+  stroke-dasharray: 196, 543;
+  stroke-dashoffset: 340;
+  transition: all 600ms ease;
+}
+
+.btn:hover .svg-btn rect {
+  stroke-dasharray: 353, 0;
+  stroke-dashoffset: 0;
+}
