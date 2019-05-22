@@ -1,5 +1,6 @@
 .container {
   position: relative;
-  background-color: $color-primary;
+  background-color: rgba($color-primary, .5);
   min-width: 320px;
+  padding: 4rem 0;
 } 
