@@ -3,15 +3,14 @@ import { elements } from '../base';
 
 
 export default class ModalPath {
-    constructor(svg, startElement, endElement) {
+    constructor(svg, startElement) {
         this.svg = svg;
         this.startElement = startElement;
-        this.endElement = endElement;
         this.coordinates = {};
         this.length = {};
     }
 
-    collectCoordinates() {
+    collectCoordinates(endElement) {
 
         // get (top, left) corner coordinates of the svg container   
         const svgTop  = this.svg.offset().top;
@@ -19,7 +18,7 @@ export default class ModalPath {
 
         // get (top, left) coordinates for the two elements
         const startCoord = this.startElement.offset();
-        const endCoord = this.endElement.offset();
+        const endCoord = endElement.offset();
 
 
         // calculate path's start (x,y)  coords
@@ -29,7 +28,7 @@ export default class ModalPath {
 
 
         // calculate path's end (x,y) coords
-        this.coordinates.endX = endCoord.left + 0.5 * this.endElement.outerWidth() - svgLeft;
+        this.coordinates.endX = endCoord.left + 0.5 * endElement.outerWidth() - svgLeft;
         this.coordinates.endY = endCoord.top  - svgTop;
 
         // method to export startX startY endX endY

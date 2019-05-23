@@ -5,6 +5,8 @@ import '../css/main.scss'
 //import modal js files
 import ModalPath from './model/modal-draw-path';
 
+// init modal class with elements
+const modalPath = new ModalPath(elements.svg, elements.player);
 
 // import view js files
 import {  renderPath,
@@ -19,7 +21,7 @@ import {  renderPath,
 import { elements } from './base';
 
 
-// Controller
+/***************** Controller *****************/
 // 1. set up event listeners
 // 2. control method calls
 // 3. update global state
@@ -34,16 +36,12 @@ elements.btnBox.on('click', (e) => {
     // 2. Click event is on a diferent button
   if(e.target.className === "btn" && e.target.className !== "active") {
 
-    
     // store active button in state
     state.clickedBtn = e.target;
-
-    // init modal class with elements
-    const modalPath = new ModalPath(elements.svg, elements.player, $(`#${state.clickedBtn.id}`));
     
 
     // calculates the start and end points for the path
-    state.coordinates = modalPath.collectCoordinates();
+    state.coordinates = modalPath.collectCoordinates( $(`#${state.clickedBtn.id}`));
 
 
     // calculate the distance of the path
@@ -80,9 +78,27 @@ elements.btnBox.on('click', (e) => {
 
 });
 
-// $(window).resize(function() {
-//   resetPathLength(elements.path);
+$(window).resize(function() {
+  resetPathLength(elements.path);
 
-//   // reset svg path each time
-//   collectCoordinates($("#svg-container"), $("#path"), $("#img"), $(".active"));
-// });
+  // calculates the start and end points for the path
+  state.coordinates = modalPath.collectCoordinates( $(`#${state.clickedBtn.id}`));
+
+
+  // calculate the distance of the path
+  state.lengths = modalPath.calcDelta();
+
+
+  // test if the clicked button has wrapped to a different line
+  if ($("#btn-1").offset().top === $(`#${state.clickedBtn.id}`).offset().top) {
+
+    // Update UI
+    renderPath(elements.path, state.coordinates, state.lengths);
+
+  } else {
+
+    // If button has wrapped the path calculates a different route
+    renderPathWrapped(elements.path, state.coordinates, state.lengths, elements.svg.offset().top);
+
+  }
+});
