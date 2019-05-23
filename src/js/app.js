@@ -5,10 +5,13 @@ import '../css/main.scss'
 //import modal js files
 import ModalPath from './model/modal-draw-path';
 
+
 // init modal class with elements
 const modalPath = new ModalPath(elements.svg, elements.player);
 
+
 // import view js files
+import { playPlayer, paucePlayer } from './view/view-player';
 import {  renderPath,
           renderPathWrapped,
           setPathLength, 
@@ -26,7 +29,9 @@ import { elements } from './base';
 // 2. control method calls
 // 3. update global state
 
-const state = { };
+const state = { 
+  playing: false
+};
 
 
 elements.btnBox.on('click', (e) => {
@@ -34,15 +39,20 @@ elements.btnBox.on('click', (e) => {
   // Run if 
     // 1. Click event is on button
     // 2. Click event is on a diferent button
-  if(e.target.className === "btn" && e.target.className !== "active") {
+  if($(e.target).hasClass("btn") && !$(e.target).hasClass("active")) {
+
+    // reset UI
+    $(elements.btnList).each(function() {
+      $(this).removeClass("active");
+    });
 
     // store active button in state
     state.clickedBtn = e.target;
-    
+
+    $(state.clickedBtn).addClass("active");
 
     // calculates the start and end points for the path
     state.coordinates = modalPath.collectCoordinates( $(`#${state.clickedBtn.id}`));
-
 
     // calculate the distance of the path
     state.lengths = modalPath.calcDelta();
@@ -56,7 +66,7 @@ elements.btnBox.on('click', (e) => {
 
     } else {
 
-      // If button has wrapped the path calculates a different route
+      // If button has wrapped, the path calculates a different route
       renderPathWrapped(elements.path, state.coordinates, state.lengths, elements.svg.offset().top);
 
     }
@@ -64,19 +74,57 @@ elements.btnBox.on('click', (e) => {
     // save length of the path to state
     state.pathTotalLength = document.querySelector('.line').getTotalLength(); 
 
-
     // set length of path
     setPathLength(elements.path, state.pathTotalLength);
 
 
+    // Control music bar animation
+    if(!state.playing) { // first time button is clicked start
+
+      // Start animation, store interval in state
+      state.interval = playPlayer(elements.musicBarList);
+
+      // Update state
+      state.playing = !state.playing;
+
+    } else { // button has been clicked but state is playing
+
+      // Cancel last animation
+      paucePlayer(state.interval);
+
+      // Start animation, store interval in state
+      state.interval = playPlayer(elements.musicBarList);
+    }
+
     // call Tween Max
     animatePath(elements.path);
 
-    console.log(state);
+  } else if ( $(e.target).hasClass("btn") && $(e.target).hasClass("active") ) { 
+    // Click is on the active button
+  
+    // Control music bar animation
+    if(state.playing) {
+
+      // Cancel last animation
+      paucePlayer(state.interval);
+
+      // Update state
+      state.playing = !state.playing;
+
+    } else {
+
+      // Start animation, store interval in state
+      state.interval = playPlayer(elements.musicBarList);
+
+      // Update state
+      state.playing = !state.playing;
+
+    }
   }
 
 
 });
+
 
 $(window).resize(function() {
   resetPathLength(elements.path);

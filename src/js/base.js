@@ -6,5 +6,7 @@ export const elements = {
   btnBox: $('.btn-box'),
   svg: $('.svg'),
   path: $('.line'),
-  player: $('.player')
+  player: $('.player'),
+  musicBarList: $('.music-bar'),
+  btnList: $('.btn')
 };
