@@ -8,5 +8,7 @@ export const elements = {
   path: $('.line'),
   player: $('.player'),
   musicBarList: $('.music-bar'),
-  btnList: $('.btn')
+  btnList: $('.btn'),
+  playIcon: $('.play'),
+  pauceIcon: $('.pauce')
 };
