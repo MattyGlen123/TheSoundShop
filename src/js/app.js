@@ -11,6 +11,7 @@ const modalPath = new ModalPath(elements.svg, elements.player);
 
 
 // import view js files
+import { renderIcon } from './view/view-play-pauce';
 import { playPlayer, paucePlayer } from './view/view-player';
 import {  renderPath,
           renderPathWrapped,
@@ -97,6 +98,9 @@ elements.btnBox.on('click', (e) => {
 
     }
 
+    // Update UI
+    renderIcon(state.playing, elements.playIcon, elements.pauceIcon);
+
     // call Tween Max
     animatePath(elements.path);
 
@@ -127,6 +131,8 @@ elements.btnBox.on('click', (e) => {
     }
   }
 
+    // Update UI
+    renderIcon(state.playing, elements.playIcon, elements.pauceIcon);
 
 });
 

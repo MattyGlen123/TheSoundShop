@@ -1,8 +1,12 @@
 .music-bars-box {
+  justify-content: space-between;
   position: absolute;
   bottom: 0;
   padding: 0;
+  display: flex;
+  align-items: baseline;
   margin: 0;
+  width: 100%;
 }
 
 .music-bar {
