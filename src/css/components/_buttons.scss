@@ -25,7 +25,6 @@
   top: 0;
   left: 0;
   width: 96%;
-  fill: transparent;
   z-index: -5;
 }
 
@@ -34,7 +33,6 @@
 }
 
 .svg-btn rect {
-  fill: $color-fourth;
   stroke-width: 4;
   height: 80%;
   stroke-dasharray: 196, 543;
@@ -49,4 +47,12 @@
 
 .active .svg-btn rect {
   stroke-width: 0;
+}
+
+.btn-background {
+  opacity: 0;
+}
+
+.active .svg-btn .btn-background {
+  opacity: 1;
 }
