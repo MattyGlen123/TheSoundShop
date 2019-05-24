@@ -11,7 +11,7 @@ export const renderPath = (path, coordinates, length) => {
     `M ${coordinates.startX} ${coordinates.startY}
                  V ${coordinates.startY + length.delta}
                  H ${coordinates.endX - length.delta * signum(length.deltaX)} 
-                 V ${coordinates.endY}`
+                 V ${coordinates.endY + 20}`
   );
 }
 
@@ -31,7 +31,7 @@ export const renderPathWrapped = (path, coordinates, length, svgLeft) => {
                    H ${svgLeft + 10}
                    V ${coordinates.endY - 20}
                    H ${coordinates.endX - length.delta * signum(length.deltaX)}
-                   V ${coordinates.endY}`
+                   V ${coordinates.endY + 20}`
     );
 }
 

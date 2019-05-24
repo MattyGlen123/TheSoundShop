@@ -79,7 +79,15 @@ elements.btnBox.on('click', (e) => {
 
 
     // Control music bar animation
-    if(!state.playing) { // first time button is clicked start
+    if(state.playing) { // first time button is clicked start
+      
+      // Cancel last animation
+      paucePlayer(state.interval);
+
+      // Start animation, store interval in state
+      state.interval = playPlayer(elements.musicBarList);
+
+    } else { // button has been clicked but state is playing
 
       // Start animation, store interval in state
       state.interval = playPlayer(elements.musicBarList);
@@ -87,21 +95,18 @@ elements.btnBox.on('click', (e) => {
       // Update state
       state.playing = !state.playing;
 
-    } else { // button has been clicked but state is playing
-
-      // Cancel last animation
-      paucePlayer(state.interval);
-
-      // Start animation, store interval in state
-      state.interval = playPlayer(elements.musicBarList);
     }
 
     // call Tween Max
     animatePath(elements.path);
 
-  } else if ( $(e.target).hasClass("btn") && $(e.target).hasClass("active") ) { 
-    // Click is on the active button
+    return
+  }
   
+
+  if ( $(e.target).hasClass("btn") && $(e.target).hasClass("active") ) { 
+    // Click is on the active button
+    
     // Control music bar animation
     if(state.playing) {
 
