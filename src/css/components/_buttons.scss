@@ -17,8 +17,6 @@
   flex: 0 1 190px;
   margin: 20px 10px;
   border-radius: 55px;
-
-  z-index: 1;
 } 
 
 .svg-btn,
@@ -47,4 +45,8 @@
 .btn:hover .svg-btn rect {
   stroke-dasharray: 353, 0;
   stroke-dashoffset: 0;
+}
+
+.active .svg-btn rect {
+  stroke-width: 0;
 }

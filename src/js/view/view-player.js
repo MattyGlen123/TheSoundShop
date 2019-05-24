@@ -8,8 +8,7 @@ export const playPlayer = (musicBarList) => {
         ease: Power0.easeNone,
       }, 0);
     });
-  }, 300);
- 
+  }, 200);
   // return interval to allow animation to be pauced/cancelled
   return interval;
 }
