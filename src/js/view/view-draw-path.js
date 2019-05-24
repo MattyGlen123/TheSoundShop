@@ -50,10 +50,9 @@ export const resetPathLength = (path) => {
 
 export const animatePath = (path) => {
   // animate path
-  TweenMax.to(path, 1, {
+  TweenMax.to(path, .6, {
     strokeDashoffset: 0,
-    ease: Power4.easeOut,
-    stroke: "red"
+    ease: Power4.easeOut
   });
 }
 
