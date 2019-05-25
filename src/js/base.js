@@ -10,5 +10,5 @@ export const elements = {
   musicBarList: $('.music-bar'),
   btnList: $('.btn'),
   playIcon: $('.play'),
-  pauceIcon: $('.pauce')
+  pauseIcon: $('.pause')
 };
