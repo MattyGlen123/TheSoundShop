@@ -11,8 +11,8 @@ const modalPath = new ModalPath(elements.svg, elements.player);
 
 
 // import view js files
-import { renderIcon } from './view/view-play-pauce';
-import { playPlayer, paucePlayer } from './view/view-player';
+import { renderIcon, updateBtnIcon } from './view/view-play-pause';
+import { playPlayer, pausePlayer } from './view/view-player';
 import {  renderPath,
           renderPathWrapped,
           setPathLength, 
@@ -46,8 +46,14 @@ elements.btnBox.on('click', (e) => {
     $(elements.btnList).each(function() {
       $(this).removeClass("active");
     });
+    
+    // Uses previous clicked button to reset UI
+    if(state.playing) {
+      $(`#${state.clickedBtn.id} g`).css('opacity', '0');
+      $(`#${state.clickedBtn.id} polygon`).css('opacity', '1');
+    }
 
-    // store active button in state
+    // Store active button in state
     state.clickedBtn = e.target;
 
     $(state.clickedBtn).addClass("active");
@@ -83,7 +89,7 @@ elements.btnBox.on('click', (e) => {
     if(state.playing) { // first time button is clicked start
       
       // Cancel last animation
-      paucePlayer(state.interval);
+      pausePlayer(state.interval);
 
       // Start animation, store interval in state
       state.interval = playPlayer(elements.musicBarList);
@@ -99,7 +105,9 @@ elements.btnBox.on('click', (e) => {
     }
 
     // Update UI
-    renderIcon(state.playing, elements.playIcon, elements.pauceIcon);
+    renderIcon(state.playing, elements.playIcon, elements.pauseIcon);
+    updateBtnIcon(state.playing, state.clickedBtn.id);
+    
 
     // call Tween Max
     animatePath(elements.path);
@@ -115,7 +123,7 @@ elements.btnBox.on('click', (e) => {
     if(state.playing) {
 
       // Cancel last animation
-      paucePlayer(state.interval);
+      pausePlayer(state.interval);
 
       // Update state
       state.playing = !state.playing;
@@ -132,7 +140,8 @@ elements.btnBox.on('click', (e) => {
   }
 
     // Update UI
-    renderIcon(state.playing, elements.playIcon, elements.pauceIcon);
+    renderIcon(state.playing, elements.playIcon, elements.pauseIcon);
+    updateBtnIcon(state.playing, state.clickedBtn.id);
 
 });
 

@@ -17,6 +17,9 @@
   flex: 0 1 190px;
   margin: 20px 10px;
   border-radius: 55px;
+
+  display: flex;
+  align-items: center;
 } 
 
 .svg-btn,
@@ -55,4 +58,35 @@
 
 .active .svg-btn .btn-background {
   opacity: 1;
+}
+
+.btn-play-pause {
+  position: relative;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background: white;
+  margin: 0 10px 0 15px;
+  z-index: -1;
+}
+
+.btn-play-pause svg { 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+}
+
+.btn-play-pause polygon {
+  fill: $color-primary;
+  stroke: $color-fifth;
+}
+
+.btn-play-pause g {
+  stroke-width: 3;
+  stroke: $color-fifth;
+  opacity: 0;
 }
