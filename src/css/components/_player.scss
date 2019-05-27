@@ -5,3 +5,44 @@
   width: 200px;
   margin-left: 10%;
 }
+
+.player-play-pause {
+  z-index: 1;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  
+  background-color: $color-primary;
+}
+
+.player-play-pause svg { 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+}
+
+.player-play-pause polygon {
+  fill: transparent;
+  stroke: $color-fifth;
+  stroke-width: 1;
+}
+
+.player-play-pause polygon {
+  fill: transparent;
+  stroke: $color-fifth;
+  stroke-width: 1;
+}
+
+.player-play-pause g {
+  stroke: $color-fifth;
+  stroke-width: 4;
+  opacity: 0;
+}

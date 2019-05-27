@@ -11,7 +11,7 @@ const modalPath = new ModalPath(elements.svg, elements.player);
 
 
 // import view js files
-import { renderIcon, updateBtnIcon } from './view/view-play-pause';
+import { updatePlayerIcon, updateBtnIcon } from './view/view-play-pause';
 import { playPlayer, pausePlayer } from './view/view-player';
 import {  renderPath,
           renderPathWrapped,
@@ -105,7 +105,7 @@ elements.btnBox.on('click', (e) => {
     }
 
     // Update UI
-    renderIcon(state.playing, elements.playIcon, elements.pauseIcon);
+    updatePlayerIcon(state.playing, elements.playerPlay, elements.playerPause);
     updateBtnIcon(state.playing, state.clickedBtn.id);
     
 
@@ -140,7 +140,7 @@ elements.btnBox.on('click', (e) => {
   }
 
     // Update UI
-    renderIcon(state.playing, elements.playIcon, elements.pauseIcon);
+    updatePlayerIcon(state.playing, elements.playerPlay, elements.playerPause);
     updateBtnIcon(state.playing, state.clickedBtn.id);
 
 });

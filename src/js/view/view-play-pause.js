@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export const renderIcon = (playing, playIcon, pauseIcon) => {
+export const updatePlayerIcon = (playing, playIcon, pauseIcon) => {
     if(playing) {
       $(pauseIcon).css('opacity', '1');
       $(playIcon).css('opacity', '0');

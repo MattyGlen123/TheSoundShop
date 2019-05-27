@@ -9,6 +9,6 @@ export const elements = {
   player: $('.player'),
   musicBarList: $('.music-bar'),
   btnList: $('.btn'),
-  playIcon: $('.play'),
-  pauseIcon: $('.pause')
+  playerPause: $('.player g'),
+  playerPlay: $('.player polygon')
 };
