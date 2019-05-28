@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 7.5%;
   padding: 4rem;
 }
 
@@ -15,7 +14,7 @@
   color: $color-primary;
   text-align: center;
   text-decoration: none;
-  flex: 0 1 190px;
+  flex: 0 1 250px;
   margin: 20px 10px;
   border-radius: 55px;
 
@@ -40,7 +39,7 @@
   stroke-width: 4;
   height: 80%;
   stroke-dasharray: 196, 543;
-  stroke-dashoffset: 340;
+  stroke-dashoffset: 220;
   transition: all 600ms ease;
 }
 
@@ -53,12 +52,19 @@
   stroke-width: 0;
 }
 
+// hide linear gradient background
 .btn-background {
   opacity: 0;
 }
 
+// shows linear gradient background 
 .active .svg-btn .btn-background {
   opacity: 1;
+}
+
+// default background 
+.btn-stroke {
+  fill: $color-fourth;
 }
 
 .btn-play-pause {

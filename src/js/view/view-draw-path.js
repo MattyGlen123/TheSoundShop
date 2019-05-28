@@ -9,7 +9,7 @@ export const renderPath = (path, coordinates, length) => {
   path.attr(
     "d",
     `M ${coordinates.startX} ${coordinates.startY}
-                 V ${coordinates.startY + length.delta}
+                 V ${coordinates.startY + length.delta + 20}
                  H ${coordinates.endX - length.delta * signum(length.deltaX)} 
                  V ${coordinates.endY + 20}`
   );
