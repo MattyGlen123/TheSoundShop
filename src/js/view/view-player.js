@@ -9,11 +9,11 @@ export const playPlayer = (musicBarList) => {
       }, 0);
     });
   }, 200);
-  // return interval to allow animation to be paused/cancelled
+  // Return interval to allow animation to be paused/cancelled
   return interval;
 }
 
 export const pausePlayer = (interval) => {
-  // cancel setInterval
+  // Cancel setInterval
   clearInterval(interval);
 }
