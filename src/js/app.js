@@ -36,6 +36,7 @@ const state = {
 
 
 elements.btnBox.on('click', (e) => {
+  e.preventDefault();
 
   // Run if 
     // 1. Click event is on button
