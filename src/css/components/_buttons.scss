@@ -97,3 +97,9 @@
   stroke: $color-fifth;
   opacity: 0;
 }
+
+// Change color of pause/play icons when button is active
+.active .btn-play-pause g,
+.active .btn-play-pause polygon {
+  stroke: $color-secondary;
+}
