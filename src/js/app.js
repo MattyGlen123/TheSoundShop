@@ -154,9 +154,13 @@ elements.btnBox.on('click', (e) => {
 
 
 $(window).resize(function() {
+  // Checks a button is clicked
+  if(state.clickedBtn === undefined) return;
+
 
   resetPathLength(elements.path);
 
+  
   // Calculates the start and end points for the path
   state.coordinates = modalPath.collectCoordinates( $(`#${state.clickedBtn.id}`));
 
